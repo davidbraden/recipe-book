@@ -2,7 +2,7 @@ var recipe_data = [
     {
         "id": "spaghetti_bolognese",
         "name": "Spaghetti Bolognese",
-        "image_url": "",
+        "image_url": "http://goodtoknow.media.ipcdigital.co.uk/111/0000135e7/191e/Spaghetti-Bolognese.jpg",
         "ingredients": [
             "2 tbsp olive oil",
             "400g beef mince",

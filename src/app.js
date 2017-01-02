@@ -1,12 +1,12 @@
 var Route = ReactRouter.Route
 var Router = ReactRouter.Router
-var browserHistory  = ReactRouter.browserHistory 
+var browserHistory = ReactRouter.browserHistory
 
 class RecipeList extends React.Component {
   render() {
-    
+
     var links = recipe_data.map(r =>
-    <a href={'/recipe/'+ r.id} className="col-xs-4" >{r.name}</a>)
+      <a href={'/recipe/' + r.id} className="col-xs-4" >{r.name}</a>)
 
     return (
       <div>
@@ -22,15 +22,28 @@ class Recipe extends React.Component {
   render() {
     var recipe = recipe_data.find(r => r.id === this.props.params.id);
 
-    return <h1>{recipe.name}</h1>;
+    return (
+      <div>
+        <h1>{recipe.name}</h1>
+        <img src={recipe.image_url}/>
+        <h4>Ingredients</h4>
+        <ul>
+          {recipe.ingredients.map(i => <li>{i}</li>)}
+        </ul>
+        <h4>Method</h4>
+        <ul>
+          {recipe.method.map(m => <li>{m}</li>)}
+        </ul>
+      </div>
+    );
   }
 }
 
 
 ReactDOM.render(
-  <Router history={browserHistory }>
-    <Route path="/" component={RecipeList}/>
-    <Route path="/recipe/:id" component={Recipe}/>
+  <Router history={browserHistory}>
+    <Route path="/" component={RecipeList} />
+    <Route path="/recipe/:id" component={Recipe} />
   </Router>,
   document.getElementById('root')
 );
