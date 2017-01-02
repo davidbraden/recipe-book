@@ -4,7 +4,17 @@ var browserHistory  = ReactRouter.browserHistory
 
 class RecipeList extends React.Component {
   render() {
-    return <h1>Recipe List</h1>;
+    
+    var links = recipe_data.map(r =>
+    <a href={'/recipe/'+ r.id} className="col-xs-4" >{r.name}</a>)
+
+    return (
+      <div>
+        <h1>Recipe List</h1>
+        <div class="container-fluid row">
+          {links}
+        </div>
+      </div>);
   }
 }
 
