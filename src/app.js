@@ -6,12 +6,17 @@ class RecipeList extends React.Component {
   render() {
 
     var links = recipe_data.map(r =>
-      <a href={'/recipe/' + r.id} className="col-xs-4" >{r.name}</a>)
+      <a href={'/recipe/' + r.id} className="recipe-link" >
+        <img src={'/img/' + r.id + '.jpeg'}>
+        </img>
+        <span className="text">{r.name}</span>
+        <span className="background"></span>
+      </a>)
 
     return (
       <div>
         <h1>Recipe List</h1>
-        <div class="container-fluid row">
+        <div class="container-fluid">
           {links}
         </div>
       </div>);
@@ -23,9 +28,9 @@ class Recipe extends React.Component {
     var recipe = recipe_data.find(r => r.id === this.props.params.id);
 
     return (
-      <div>
+      <div className="recipe-wrapper">
         <h1>{recipe.name}</h1>
-        <img src={recipe.image_url}/>
+        <img src={'/img/' + recipe.id + '.jpeg'}/>
         <h4>Ingredients</h4>
         <ul>
           {recipe.ingredients.map(i => <li>{i}</li>)}
